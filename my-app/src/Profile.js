@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Review.css";
+import "./Profile.css";
 
-export default function Review() {
+export default function Profile() {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
