@@ -25,12 +25,11 @@ input {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+  
 @font-face {
   font-family: 'Montserrat';
   src: url('./Fonts/Montserrat-VariableFont_wght.ttf');
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
