@@ -3,7 +3,7 @@ function generateHouses(numHouses) {
 
     const houseTemplates = {
         "house1": {
-            "home-type": "House",
+            "home_type": "House",
             "price": { min: 250000, max: 3000000, concentrated: 400000, baseSizeFactor: 150, baseBathFactor: 50000 },
             "size": { min: 1500, max: 10000, concentrated: 4500 },
             "parking_am": { min: 0, max: 5, concentrated: 3 },
@@ -13,6 +13,7 @@ function generateHouses(numHouses) {
             },
             "schools": { great: 0.15, good: 0.25, mid: 0.3, poor: 0.15, bad: 0.15 },
             "bathrooms": { min: 1, max: 6, concentrated: 3 },
+            "bedrooms": { min: 1, max: 5, concentrated: 3 },
             "basement": { trueWeight: 0.75 },
             "basement_furnished": [true, false],
             "attic": [true, false],
@@ -22,7 +23,7 @@ function generateHouses(numHouses) {
             "pool": [true, false]
         },
         "house2": {
-            "home-type": "Townhouse",
+            "home_type": "Townhouse",
             "price": { min: 150000, max: 2000000, concentrated: 250000, baseSizeFactor: 200, baseBathFactor: 30000 },
             "size": { min: 1000, max: 5000, concentrated: 2000 },
             "parking_am": { min: 0, max: 3, concentrated: 1 },
@@ -32,6 +33,7 @@ function generateHouses(numHouses) {
             },
             "schools": { great: 0.15, good: 0.25, mid: 0.3, poor: 0.15, bad: 0.15 },
             "bathrooms": { min: 1, max: 4, concentrated: 2 },
+            "bedrooms": { min: 1, max: 4, concentrated: 2 },
             "basement": [true, false],
             "basement_furnished": [true, false],
             "attic": [true, false],
@@ -42,7 +44,7 @@ function generateHouses(numHouses) {
             "pool": [true, false]
         },
         "house3": {
-            "home-type": "Condo",
+            "home_type": "Condo",
             "price": { min: 150000, max: 2500000, concentrated: 300000, baseSizeFactor: 300, baseBathFactor: 25000 },
             "size": { min: 500, max: 3000, concentrated: 1000 },
             "parking_am": { min: 0, max: 3, concentrated: 1 },
@@ -52,6 +54,7 @@ function generateHouses(numHouses) {
             },
             "schools": { great: 0.15, good: 0.25, mid: 0.3, poor: 0.15, bad: 0.15 },
             "bathrooms": { min: 1, max: 4, concentrated: 1 },
+            "bedrooms": { min: 1, max: 4, concentrated: 2 },
             "basement": [false],
             "basement_furnished": [false],
             "attic": [false],
@@ -78,6 +81,9 @@ function generateHouses(numHouses) {
         rand = Math.max(min, Math.min(rand, max))
         if (rand > 1000) {
             return Math.round(rand / 1000) * 1000
+        }
+        if (rand > 100) {
+            return Math.round(rand / 100) * 100
         }
         return Math.round(rand)
     }
@@ -129,12 +135,14 @@ function generateHouses(numHouses) {
 
         let size = getBiasedRandom(template.size.min, template.size.max, template.size.concentrated)
         let bathrooms = getBiasedRandom(template.bathrooms.min, template.bathrooms.max, template.bathrooms.concentrated)
+        let bedrooms = getBiasedRandom(template.bedrooms.min, template.bedrooms.max, template.bedrooms.concentrated)
         let parking_am = getBiasedRandom(template.parking_am.min, template.parking_am.max, template.parking_am.concentrated)
 
         let house = {
-            "home-type": template["home-type"],
+            "home_type": template["home_type"],
             "size": size,
             "bathrooms": bathrooms,
+            "bedrooms": bedrooms,
             "parking_am": parking_am,
             "setting": getWeightedRandom(template.setting.weights),
             "schools": getWeightedRandom(template.schools),
