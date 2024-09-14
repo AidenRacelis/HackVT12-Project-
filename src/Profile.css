@@ -5,12 +5,13 @@ body.active-modal {
 .btn-modal {
     position: absolute;
     left: 0; /* Aligns the button to the left */
-    top: 70%; /* Centers the button vertically */
+    top: 5%; /* Centers the button vertically */
     transform: translateY(-50%); /* Adjusts the vertical centering */
     padding: 20px;
 
-    padding-left: 50px;
+    /* padding-left: 50px; */
     margin-left: 5px;
+    width: 8em;
     
     background-color: #4CAF50;
     color: white;
