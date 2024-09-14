@@ -5,7 +5,7 @@ function generateHouses(numHouses) {
         "house1": {
             "home-type": "House",
             "price": { min: 250000, max: 3000000, concentrated: 400000, baseSizeFactor: 150, baseBathFactor: 50000 },
-            "size": { min: 1500, max: 10000, concentrated: 3500 },
+            "size": { min: 1500, max: 10000, concentrated: 4500 },
             "parking_am": { min: 0, max: 5, concentrated: 3 },
             "parking_garage": [true, false],
             "setting": {
@@ -105,11 +105,11 @@ function generateHouses(numHouses) {
         price += amenitiesFactor * 40000
     
         // regional price changes
-        setting == 'city_center' ? price *=3 : price
-        setting == 'suburban' ? price *=1.5 : price
-        setting == 'beachside' ? price *= 3 : price
-        setting == 'forest' ? price /= 3 : price
-        setting == 'rural' ? price /= 2 : price
+        if (setting === 'city_center') { price *=2 }
+        if (setting === 'suburban') { price *=1.5 }
+        if (setting === 'beachside') { price *=3 }
+        if (setting === 'forest') { price /=3 }
+        if (setting === 'rural') { price /=2 }
 
         // Ensure price is a number
         if (isNaN(price) || isNaN(basePrice.min) || isNaN(basePrice.max)) {
@@ -174,7 +174,8 @@ function generateHouses(numHouses) {
     return homes
 }
 
-export default houses = (amount) => {
-    var house_list = generateHouses(amount)
-    return house_list
+function housegenerator(amount) {
+    return generateHouses(amount)
 }
+
+export default housegenerator
