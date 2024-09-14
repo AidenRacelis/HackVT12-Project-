@@ -1,5 +1,18 @@
+:root {
+  --orange:#FF850F;
+}
+
+
 .App {
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-family: Montserrat;
+}
+
+input {
+  font-family: Montserrat;
 }
 
 .App-logo {
@@ -12,7 +25,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+  
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Fonts/Montserrat-VariableFont_wght.ttf');
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -35,4 +52,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.chat-container {
+  width: 50%;
 }

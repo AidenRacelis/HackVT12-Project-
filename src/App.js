@@ -4,6 +4,7 @@ import Chatbot from './Chatbot';
 import Profile from './Profile';
 import Settings from './Settings';
 import About from './About' ;
+import SearchHouses from './components/SearchHouses';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Profile />
       <Settings />
       <About />
+      <SearchHouses />
     </div>
   );
 }
