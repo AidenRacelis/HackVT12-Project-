@@ -5,8 +5,6 @@ import Profile from './Profile';
 import Settings from './Settings' ;
 import About from './About' ;
 
-
-
 function App() {
   return (
     <div className="App">
