@@ -2,10 +2,10 @@ body.active-modal {
     overflow-y: hidden;
 }
 
-.btn-modal {
+.btn-modal-settings {
     position: absolute;
     left: 0; /* Aligns the button to the left */
-    top: 70%; /* Centers the button vertically */
+    top: 80%; /* Centers the button vertically */
     transform: translateY(-50%); /* Adjusts the vertical centering */
     padding: 20px;
 
@@ -28,11 +28,11 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
+    
 }
 
 .overlay {
     background: rgba(49,49,49,0.8);
-    
 }
 
 .modal{
