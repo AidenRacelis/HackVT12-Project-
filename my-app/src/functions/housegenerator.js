@@ -174,7 +174,7 @@ function generateHouses(numHouses) {
     return homes
 }
 
-function generateHouses(amount) {
+export default houses = (amount) => {
     var house_list = generateHouses(amount)
     return house_list
 }
