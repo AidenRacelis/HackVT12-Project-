@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Chatbot from './Chatbot'; 
-import Review from './Profile';
+import Profile from './Profile';
 
 
 function App() {
