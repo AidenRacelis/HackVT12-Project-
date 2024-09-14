@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Profile.css";
 
+import AverageScoreTracker from "./functions/AverageScoreTracker";
+
 export default function Profile() {
   const [modal, setModal] = useState(false);
 
@@ -25,8 +27,9 @@ export default function Profile() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Profile</h2>
+            <img src ='./assets/Client1.png' alt= "Client 1" />
             <p>
-              Enter Profile Statistics
+              <AverageScoreTracker />
             </p>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE

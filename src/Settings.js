@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Settings.css";
+import ResetScore from "./functions/ResetScore";
+
 
 export default function Settings() {
   const [modal, setModal] = useState(false);
@@ -25,8 +27,9 @@ export default function Settings() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Settings</h2>
+            
             <p>
-              ....
+              <ResetScore />
             </p>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
