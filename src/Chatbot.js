@@ -57,9 +57,16 @@ const Chatbot = () => {
           type="text" 
           placeholder="Type your next response to the client" 
           value={input}
+          id = "textbox"
           onChange={(e) => setInput(e.target.value)}
           className="chat-input"
-        />
+          onKeyUp={(e)=> {
+            if(e.key === 'Enter') {
+              handleSend();
+              setInput("");
+            }
+          }}
+        ></input>
         <button onClick={handleSend} className="send-button">Send</button>
       </div>
     </div>
