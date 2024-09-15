@@ -8,9 +8,7 @@ const Modal = ({ closeModal }) => {
       <div className="modal-content">
         <h2>Here are your options</h2>
 
-        <button className="selection" onClick={() => alert("Recommend button clicked!")}>
-          Recommend
-        </button>
+        
         <button className= "selection" onClick={() => alert("I made my choice!")}>
           I made my choice!
         </button>
