@@ -7,9 +7,7 @@ const Modal = ({ closeModal }) => {
     <div className="modal">
       <div className="modal-content">
         <h2>Here are your options</h2>
-
-        
-        <button className= "selection" onClick={() => alert("I made my choice!")}>
+        <button className="selection" onClick={() => alert("I made my choice!")}>
           I made my choice!
         </button>
         <br />
@@ -39,16 +37,37 @@ function repeat(rating) {
 
 export default function SearchHouses() {
   const [houseList, setHouseList] = useState([]); // Store the generated house list
+  const [filteredHouseList, setFilteredHouseList] = useState([]); // Filtered houses list
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Filter states
+  const [price, setPrice] = useState('');
+  const [bedrooms, setBedrooms] = useState('');
+  const [bathrooms, setBathrooms] = useState('');
+  const [setting, setSetting] = useState('');
 
   // Generate the house list once when the component mounts
   useEffect(() => {
     const generatedHouses = housegenerator(100);
     setHouseList(generatedHouses);
-  }, []); // Empty dependency array ensures this runs only once
+    setFilteredHouseList(generatedHouses); // Initially show all houses
+  }, []);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  // Filter houses based on user input
+  const applyFilters = () => {
+    const filtered = houseList.filter((house) => {
+      return (
+        (price === '' || house.price <= parseInt(price)) &&
+        (bedrooms === '' || house.bedrooms >= parseInt(bedrooms)) &&
+        (bathrooms === '' || house.bathrooms >= parseInt(bathrooms)) &&
+        (setting === '' || house.setting.toLowerCase() === setting.toLowerCase())
+      );
+    });
+    setFilteredHouseList(filtered);
   };
 
   return (
@@ -64,8 +83,51 @@ export default function SearchHouses() {
         </span>
       </div>
 
+      {/* Filter Section */}
+      <div className="FilterSection">
+        <h3>Filter Houses</h3>
+        <label>
+          Max Price:
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            placeholder="Enter max price"
+          />
+        </label>
+        <label>
+          Min Bedrooms:
+          <input
+            type="number"
+            value={bedrooms}
+            onChange={(e) => setBedrooms(e.target.value)}
+            placeholder="Enter min bedrooms"
+          />
+        </label>
+        <label>
+          Min Bathrooms:
+          <input
+            type="number"
+            value={bathrooms}
+            onChange={(e) => setBathrooms(e.target.value)}
+            placeholder="Enter min bathrooms"
+          />
+        </label>
+        <label>
+          Setting:
+          <select value={setting} onChange={(e) => setSetting(e.target.value)}>
+            <option value="">Any</option>
+            <option value="urban">Urban</option>
+            <option value="suburban">Suburban</option>
+            <option value="rural">Rural</option>
+          </select>
+        </label>
+        <button onClick={applyFilters}>Apply Filters</button>
+      </div>
+
+      {/* Display Filtered Houses */}
       <div className="DisplayHouses">
-        {houseList.map((house, index) => (
+        {filteredHouseList.map((house, index) => (
           <div key={index} className="HouseDiv" value={`${house.home_type}`}>
             <span className="chooseHouse" onClick={toggleModal}></span>
             <img
@@ -74,8 +136,8 @@ export default function SearchHouses() {
                 (house.home_type === 'Townhouse' || house.home_type === 'Condo')
                   ? `../assets/${house.home_type}.png`
                   : (house.home_type === 'House' && house.price > 1000000)
-                  ? `../assets/${house.home_type}-Modern.png`
-                  : `../assets/${house.home_type}-Regular.png`
+                    ? `../assets/${house.home_type}-Modern.png`
+                    : `../assets/${house.home_type}-Regular.png`
               }
               alt="House"
             />
