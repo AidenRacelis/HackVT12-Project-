@@ -95,7 +95,31 @@ ul {
     transition: box-shadow 0.5s ease;
 }
 
+.selection{
+padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.close-btn{
+padding: 5px 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
 .chooseHouse:hover {
     box-shadow: inset 0 0 20px 10px #0079be66;
     cursor: pointer;
+}
+
+.hidden{
+    display:none;
 }
