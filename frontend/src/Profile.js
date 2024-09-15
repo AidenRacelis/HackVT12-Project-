@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Profile.css";
 
-import AverageScoreTracker from "./functions/AverageScoreTracker";
+import AverageScoreTracker from "./FrontendFunctions/AverageScoreTracker";
 
 export default function Profile() {
   const [modal, setModal] = useState(false);
@@ -10,7 +10,7 @@ export default function Profile() {
     setModal(!modal);
   };
 
-  if(modal) {
+  if (modal) {
     document.body.classList.add('active-modal')
   } else {
     document.body.classList.remove('active-modal')
@@ -27,7 +27,7 @@ export default function Profile() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Profile</h2>
-            <img src ='./assets/Client1.png' alt= "Client 1" className="client"/>
+            <img src='./assets/Client1.png' alt="Client 1" />
             <p>
               <AverageScoreTracker />
             </p>
@@ -37,7 +37,7 @@ export default function Profile() {
           </div>
         </div>
       )}
-      
+
     </>
   );
 }

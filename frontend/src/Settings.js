@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Settings.css";
-import ResetScore from "./functions/ResetScore";
+import ResetScore from "./FrontendFunctions/ResetScore";
 
 
 export default function Settings() {
@@ -10,7 +10,7 @@ export default function Settings() {
     setModal(!modal);
   };
 
-  if(modal) {
+  if (modal) {
     document.body.classList.add('active-modal')
   } else {
     document.body.classList.remove('active-modal')
@@ -27,7 +27,7 @@ export default function Settings() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Settings</h2>
-            
+
             <p>
               <ResetScore />
             </p>
@@ -37,7 +37,7 @@ export default function Settings() {
           </div>
         </div>
       )}
-      
+
     </>
   );
 }
