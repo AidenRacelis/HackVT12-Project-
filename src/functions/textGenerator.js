@@ -13,7 +13,7 @@ app.use(cors({
 // Initialize OpenAI
 const openai = new OpenAI({
     // change api key
-  apiKey: "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"
+  apiKey: process.env.API_KEY
 });
 
 app.post('/ask', async (req, res) => {
@@ -22,11 +22,11 @@ app.post('/ask', async (req, res) => {
   try {
     // ChatGPT call structure with prompt
     const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "You are an AI designed to answer questions. Answer each question to the best of your ability.",
+          content: "You are an AI designed to be a client for a real estate agent. You will talk to the user like a client looking for a house and describe to the user your lifestyle (kids, cars, job, etc). Keep responses to under 4-5 sentences and let the user ask you questions to confide your needs. Then, at the end, rate the user's choice based on your needs ",
         },
         {
           role: "user",
@@ -53,5 +53,5 @@ app.post('/ask', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
