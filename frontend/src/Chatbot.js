@@ -11,7 +11,7 @@ const Chatbot = () => {
       setMessages([...messages, { text: input, isUser: true }]);
       try {
         // Make a request to the backend to get the AI's response
-        const response = await fetch('http://localhost:5000/ask', {
+        const response = await fetch('http://localhost:8080/ask', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
