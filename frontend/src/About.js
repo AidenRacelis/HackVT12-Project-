@@ -27,6 +27,10 @@ export default function About() {
             <h2>Learn About Us!</h2>
             <p>
               We are David&Them, David & David & Aiden & Richard.
+              
+            </p>
+            <p>
+            Purpose: To have users practice in real estate if they wish to pursue the field or simply play for fun!
             </p>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
