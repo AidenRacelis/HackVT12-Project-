@@ -45,6 +45,7 @@ const Chatbot = () => {
   return (
     <div className="chat-container">
       <h1 className="chat-header">Real Estate Chatbot</h1>
+      <img src='./assets/Client2.png' alt="Client 2" className='profile-circle'/>
       <div className="chat-box">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.isUser ? 'user-message' : 'bot-message'}`}>

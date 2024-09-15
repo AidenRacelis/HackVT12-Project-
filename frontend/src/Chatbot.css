@@ -8,6 +8,15 @@
     background-color: #87CEFA;
   }
   
+  /* Profile Picture */
+  .profile-circle{
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    image-rendering: pixelated;
+    top: 10%
+
+  }
   /* Chat Header */
   .chat-header {
     margin-top: 20px;
