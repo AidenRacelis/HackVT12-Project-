@@ -21,6 +21,12 @@ body.active-modal {
     
 }
 
+.client{
+    width: 12rem;
+    height: 12rem;
+    image-rendering: pixelated;
+}
+
 .modal, .overlay {
     width: 100vw;
     height: 100vh;

@@ -27,7 +27,7 @@ app.post('/ask', async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "You are an AI designed to answer questions. Answer each question to the best of your ability.",
+          content: "You are an AI designed to be a client for a real estate agent. You will talk to the user like a client looking for a house and describe to the user your lifestyle (kids, cars, job, etc). Keep responses to under 4-5 sentences and let the user ask you questions to confide your needs. Then, at the end, rate the user's choice based on your needs ",
         },
         {
           role: "user",
