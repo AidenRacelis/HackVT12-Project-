@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "./Profile.css";
+import "./Settings.css";
+import ResetScore from "../backend/ResetScore";
 
-import AverageScoreTracker from "./functions/AverageScoreTracker";
 
-export default function Profile() {
+export default function Settings() {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
-  if(modal) {
+  if (modal) {
     document.body.classList.add('active-modal')
   } else {
     document.body.classList.remove('active-modal')
@@ -18,18 +18,18 @@ export default function Profile() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Profile
+      <button onClick={toggleModal} className="btn-modal-settings">
+        Settings
       </button>
 
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Profile</h2>
-            <img src ='./assets/Client1.png' alt= "Client 1" />
+            <h2>Settings</h2>
+
             <p>
-              <AverageScoreTracker />
+              <ResetScore />
             </p>
             <button className="close-modal" onClick={toggleModal}>
               CLOSE
@@ -37,7 +37,7 @@ export default function Profile() {
           </div>
         </div>
       )}
-      
+
     </>
   );
 }

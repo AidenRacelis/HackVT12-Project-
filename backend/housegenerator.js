@@ -117,6 +117,8 @@ function generateHouses(numHouses) {
         if (setting === 'forest') { price /=3 }
         if (setting === 'rural') { price /=2 }
 
+        price = Math.round(price / 1000) * 1000
+
         // Ensure price is a number
         if (isNaN(price) || isNaN(basePrice.min) || isNaN(basePrice.max)) {
             console.error('NaN detected in price calculation:', {
