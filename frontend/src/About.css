@@ -5,7 +5,7 @@ body.active-modal {
 .btn-modal-about {
     position: absolute;
     left: 0; /* Aligns the button to the left */
-    top: 25%; /* Centers the button vertically */
+    top: 18%; /* Centers the button vertically */
     transform: translateY(-50%); /* Adjusts the vertical centering */
     padding: 20px;
 
@@ -20,7 +20,7 @@ body.active-modal {
     border: none;
     cursor: pointer;
     
-    
+    font-family: Montserrat;
     
 }
 

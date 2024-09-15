@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Chatbot />
       <Profile />
-      <Settings />
+      {/* <Settings /> */}
       <About />
       <SearchHouses />
     </div>
