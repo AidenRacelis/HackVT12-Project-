@@ -44,7 +44,7 @@ const Chatbot = () => {
 
   return (
     <div className="chat-container">
-      <h1 className="chat-header">Real Estate Chatbot</h1>
+      <h1 className="chat-header">Real Estate Client</h1>
       <img src='./assets/Client2.png' alt="Client 2" className='profile-circle'/>
       <div className="chat-box">
         {messages.map((message, index) => (
@@ -56,7 +56,7 @@ const Chatbot = () => {
       <div className="input-area">
         <input 
           type="text" 
-          placeholder="Type your next response to the client" 
+          placeholder="Type your next message..." 
           value={input}
           id = "textbox"
           onChange={(e) => setInput(e.target.value)}

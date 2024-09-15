@@ -48,7 +48,7 @@ export default function SearchHouses() {
 
   // Generate the house list once when the component mounts
   useEffect(() => {
-    const generatedHouses = housegenerator(100);
+    const generatedHouses = housegenerator(500);
     setHouseList(generatedHouses);
     setFilteredHouseList(generatedHouses); // Initially show all houses
   }, []);
@@ -74,20 +74,16 @@ export default function SearchHouses() {
     <div className="SearchWindow">
       <div className="SearchBanner">
         <span className="SearchBar">
-          <input placeholder="Your dream home is one click away..." />
-          <span className="SearchButton">
-            <svg xmlns="http://www.w3.org/2000/svg" width=".9em" height=".9em" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-            </svg>
-          </span>
+        Your dream home is one click away...
         </span>
       </div>
 
       {/* Filter Section */}
       <div className="FilterSection">
         <h3>Filter Houses</h3>
+        <div>
         <label>
-          Max Price:
+          Max Price: 
           <input
             type="number"
             value={price}
@@ -96,7 +92,7 @@ export default function SearchHouses() {
           />
         </label>
         <label>
-          Min Bedrooms:
+          Min Bedrooms: 
           <input
             type="number"
             value={bedrooms}
@@ -105,7 +101,7 @@ export default function SearchHouses() {
           />
         </label>
         <label>
-          Min Bathrooms:
+          Min Bathrooms: 
           <input
             type="number"
             value={bathrooms}
@@ -114,14 +110,17 @@ export default function SearchHouses() {
           />
         </label>
         <label>
-          Setting:
+          Setting: 
           <select value={setting} onChange={(e) => setSetting(e.target.value)}>
             <option value="">Any</option>
+            <option value="city_center">City Center</option>
             <option value="urban">Urban</option>
             <option value="suburban">Suburban</option>
             <option value="rural">Rural</option>
+            <option value="forest">Forest</option>
           </select>
         </label>
+        </div>
         <button onClick={applyFilters}>Apply Filters</button>
       </div>
 
@@ -129,7 +128,8 @@ export default function SearchHouses() {
       <div className="DisplayHouses">
         {filteredHouseList.map((house, index) => (
           <div key={index} className="HouseDiv" value={`${house.home_type}`}>
-            <span className="chooseHouse" onClick={toggleModal}></span>
+            {/* <span className="chooseHouse" onClick={toggleModal}></span>000 */}
+            <span className="chooseHouse"></span>
             <img
               className="HouseImg"
               src={
