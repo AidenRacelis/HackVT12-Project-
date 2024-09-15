@@ -13,29 +13,28 @@ app.use(cors({
 
 // Initialize OpenAI
 const openai = new OpenAI({
-    // change api key
-  apiKey: process.env.API_KEY
+  apiKey: process.env.API_KEY, // Ensure API_KEY is set in your .env file
 });
 
 app.post('/ask', async (req, res) => {
   const { question } = req.body;
 
   try {
-    // ChatGPT call structure with prompt
+    // ChatGPT API call with the custom prompt
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4", // Use "gpt-4" or "gpt-3.5-turbo"
       messages: [
         {
           role: "system",
-          content: "You are an AI designed to be a client for a real estate agent. You will talk to the user like a client looking for a house and describe to the user your lifestyle (kids, cars, job, etc). Keep responses to under 4-5 sentences and let the user ask you questions to confide your needs. Then, at the end, rate the user's choice based on your needs ",
+          content: "You are a client looking to buy a house. You have a family, lifestyle, and specific preferences (e.g., number of bedrooms, location, type of home). Answer questions posed by the real estate agent (the user) based on your needs, lifestyle, and personal situation. Keep responses concise (under 4-5 sentences), and at the end, rate the agent's recommendation."
         },
         {
           role: "user",
           content: question,
-        },
+        }
       ],
-      temperature: 1,
-      max_tokens: 1000,
+      temperature: 0.7, // Adjusts creativity. 1 is more creative, 0 is more focused
+      max_tokens: 1000, // Set an appropriate token limit
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
@@ -45,7 +44,7 @@ app.post('/ask', async (req, res) => {
     const aiResponse = response.choices[0].message.content;
     console.log(`AI Response: ${aiResponse}`);
 
-    // Sending the response back as JSON
+    // Send back the AI's response as JSON
     res.status(200).json({ answer: aiResponse });
 
   } catch (error) {
