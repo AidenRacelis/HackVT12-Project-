@@ -27,7 +27,7 @@ export default function Profile() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Profile</h2>
-            <img src ='./assets/Client1.png' alt= "Client 1" />
+            <img src ='./assets/Client1.png' alt= "Client 1" className="client"/>
             <p>
               <AverageScoreTracker />
             </p>
