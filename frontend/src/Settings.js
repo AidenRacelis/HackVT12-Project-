@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Settings.css";
-import ResetScore from "../backend/ResetScore";
+import ResetScore from "./FrontendFunctions/ResetScore";
 
 
 export default function Settings() {

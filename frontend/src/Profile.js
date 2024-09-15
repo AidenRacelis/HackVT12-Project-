@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Profile.css";
 
-import AverageScoreTracker from "../backend/AverageScoreTracker";
+import AverageScoreTracker from "./FrontendFunctions/AverageScoreTracker";
 
 export default function Profile() {
   const [modal, setModal] = useState(false);

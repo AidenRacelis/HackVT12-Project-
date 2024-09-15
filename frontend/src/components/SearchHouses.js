@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import housegenerator from '../../backend/housegenerator'
+import housegenerator from '../FrontendFunctions/housegenerator'
 import '../css/search.css'
 
 function formatString(str) {
