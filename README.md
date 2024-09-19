@@ -8,14 +8,16 @@ This project makes use of GPT-4 to respond dynamically to the user. It was creat
 TO ACCESS PROJECT:
 
 Frontend:
-...../HackVT12-Project-/ $cd frontend
+```
+{yourpath_to_project}/ $cd frontend
 $npm install
 $npm run start
-
+```
 Backend:
-...../HackVT12-Project-/ $cd backend
+```
+{yourpath_to_project}/ $cd backend
 $npm init -y
 $npm install
-$node .\textGenerator.js
-
+$node ./textGenerator.js
+```
 !!! CHANGE OPENAI API KEY TO YOUR OWN API KEY !!!
