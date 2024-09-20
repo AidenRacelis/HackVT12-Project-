@@ -21,4 +21,6 @@ $npm install
 $node ./textGenerator.js
 ```
 !!! CHANGE OPENAI API KEY TO YOUR OWN API KEY !!!
+```
 *located in .env file*
+```
